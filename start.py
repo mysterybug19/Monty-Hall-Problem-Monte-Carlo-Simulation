@@ -2,20 +2,14 @@ import random
 import pandas as pd
 import numpy as np
 import streamlit as st
-import os
+import plotly.graph_objects as go
 
 st.set_page_config(page_title="Simulare Monty Hall")
 
 if "page" not in st.session_state:
     st.session_state.page = "intro"
-if "idx" not in st.session_state:
-    st.session_state.idx = 0
 if "N" not in st.session_state:
     st.session_state.N = 0
-if "stay_wins" not in st.session_state:
-    st.session_state.stay_wins = 0
-if "switch_wins" not in st.session_state:
-    st.session_state.switch_wins = 0
     
 #Intro
 if st.session_state.page == "intro":
@@ -73,30 +67,42 @@ if st.session_state.page == "simulation":
     st.divider()
     doors=[1,2,3]
     N=st.session_state.N
-    stay_wins=0
-    switch_wins=0
-    idx=0
-    while idx<N:
-        car = random.choice(doors)
-        player = random.choice(doors)
-        possible = [d for d in doors if d != player and d != car]
-        host = random.choice(possible)
-        switch = [d for d in doors if d != player and d != host][0]
-        if player == car:
-            stay_wins += 1
-        if switch == car:
-            switch_wins += 1
-        idx+=1
-    stay_pr=float(stay_wins/N*100)
-    switch_pr=float(switch_wins/N*100)
-    st.markdown("Victorii dacă nu schimb")
-    st.progress(stay_pr/100.00)
-    st.caption(f"{stay_pr:.1f}%")
-    st.markdown("Victorii dacă schimb")
-    st.progress(switch_pr/100.00)
-    st.caption(f"{switch_pr:.1f}%")
+    
+    car=np.random.randint(0,3,N)
+    player=np.random.randint(0,3,N)
+    
+    stay_win=(player==car)
+    switch_win=~stay_win
 
-    if st.button("Back"):
+    stay_rate=100*np.cumsum(stay)/np.arange(1,N+1)
+    switch_rate=100*np.cumsum(switch)/np.arange(1,N +1)
+
+    idx=np.unique(np.logspace(0,np.log10(N),5000,dtype=int)-1)
+
+    x=idx+1
+    stay_plot=stay_rate[idx]
+    switch_plot=switch_rate[idx]
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=x,y=stay_plot,mode="lines",name="Stay"))
+    fig.add_trace(go.Scatter(x=x,y=switch_plot,mode="lines",name="Switch"))
+    fig.update_layout(title="Monty Hall Convergence",xaxis_title="Number of simulations",yaxis_title="Probability",)
+    fig.update_xaxes(type="log")
+    fig.add_hline(y=1/3, line_dash="dash")
+    fig.add_hline(y=2/3, line_dash="dash")
+    
+    st.headline("Procente finale:")
+    st.markdown("Victorii dacă nu schimb")
+    st.progress(stay_rate[-1]/100.00)
+    st.caption(f"{stay_rate[-1]:.1f}%")
+    st.markdown("Victorii dacă schimb")
+    st.progress(switch_rate[-1]/100.00)
+    st.caption(f"{switch_rate[-1]:.1f}%")
+    st.divider()
+    st.headline("Grafic:")
+    st.plotly_chart(fig, use_container_width=True)
+    
+    if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
     
