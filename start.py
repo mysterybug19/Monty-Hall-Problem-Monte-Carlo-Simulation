@@ -68,7 +68,7 @@ if st.session_state.page == "simulation":
     doors=[1,2,3]
     N=st.session_state.N
     idx=st.session_state.idx
-    if idx<N
+    if idx<N:
         car = random.choice(doors)
         player = random.choice(doors)
         possible = [d for d in doors if d != player and d != car]
