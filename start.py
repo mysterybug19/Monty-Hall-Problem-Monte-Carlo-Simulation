@@ -74,10 +74,10 @@ if st.session_state.page == "simulation":
             switch_wins += 1
         st.markdown("Victorii dacă nu schimb")
         st.progress(float(stay_wins)/float(N))
-        st.caption(str(float(stay_wins)/float(N).1f))
+        st.caption(str(float(stay_wins)/float(N)))
         st.markdown("Victorii dacă schimb")
         st.progress(float(switch_wins)/float(N))
-        st.caption(str(float(switch_wins)/float(N).1f))
+        st.caption(str(float(switch_wins)/float(N)))
         st.rerun()
 
     if st.button("Back"):
