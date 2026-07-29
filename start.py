@@ -8,10 +8,7 @@ st.set_page_config(page_title="Simulare Monty Hall")
 
 if "page" not in st.session_state:
     st.session_state.page = "intro"
-
-
-@st.cache_resource
-
+    
 #Intro
 if st.session_state.page == "intro":
     st.title("Simulare Monty Hall")
