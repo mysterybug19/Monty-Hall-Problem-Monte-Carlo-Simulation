@@ -72,7 +72,7 @@ if st.session_state.page == "game1":
     possible_door = [d for d in doors if d != player_door and d != car_door]
     host_door = random.choice(possible_door)
     ch_host=str(host_door)
-    st.markdown("Ușa "+ ch_host+ "ascundea o capră. Ce alegi, păstrezi decizia sau o schimbi?")
+    st.markdown("Ușa "+ ch_host+ " ascundea o capră. Ce alegi, păstrezi decizia sau o schimbi?")
     col1, col2= st.columns(2)
     with col1:
         if st.button("Păstrez", use_container_width=True):
