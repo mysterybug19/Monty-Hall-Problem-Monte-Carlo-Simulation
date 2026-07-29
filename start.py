@@ -8,6 +8,8 @@ st.set_page_config(page_title="Simulare Monty Hall")
 
 if "page" not in st.session_state:
     st.session_state.page = "intro"
+if "idx" not in st.session_state:
+    st.session_state.idx = 0
     
 #Intro
 if st.session_state.page == "intro":
@@ -26,7 +28,7 @@ if st.session_state.page == "intro":
         st.rerun()
 
     if st.button("Simulare", use_container_width=True):
-        st.session_state.page = "simulation"
+        st.session_state.page = "simulation_nr"
         st.rerun()
 
 #Game
@@ -45,13 +47,20 @@ if st.session_state.page == "explenation":
         st.rerun()
 
 #Simulations
+if st.session_state.page == "simulation_nr":
+    st.title("Simulare Monty Hall")
+    st.header("Alege numărul de simulări")
+    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000)
+    st.session_state.idx  = 0
+    stay_wins = 0
+    switch_wins = 0
+    doors=[1,2,3]
+    st.session_state.page = "simulation"
+    
 if st.session_state.page == "simulation":
     st.title("Simulare Monty Hall")
     st.divider()
-    doors=[1,2,3]
-    stay_wins = 0
-    switch_wins = 0
-    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000)
+    
 
     for i in range (N):
         car = random.choice(doors)
@@ -63,12 +72,13 @@ if st.session_state.page == "simulation":
             stay_wins += 1
         if switch == car:
             switch_wins += 1
-        st.markdown(Victorii dacă nu schimb)
+        st.markdown("Victorii dacă nu schimb")
         st.progress(float(stay_wins)/float(N))
-        st.caption(str(float(stay_wins)/float(N)))
-        st.markdown(Victorii dacă schimb)
+        st.caption(str(float(stay_wins)/float(N).1f))
+        st.markdown("Victorii dacă schimb")
         st.progress(float(switch_wins)/float(N))
-        st.caption(str(float(switch_wins)/float(N)))
+        st.caption(str(float(switch_wins)/float(N).1f))
+        st.rerun()
 
     if st.button("Back"):
         st.session_state.page = "intro"
