@@ -41,14 +41,14 @@ if st.session_state.page == "intro":
 if st.session_state.page == "game":
     st.title("Jocul")
     st.divider()
-    if st.button("Back"):
+    if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
 #Explenation
 if st.session_state.page == "explenation":
     st.title("Explicație")
     st.divider()
-    if st.button("Back"):
+    if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
 
@@ -60,7 +60,16 @@ if st.session_state.page == "simulation_nr":
     st.session_state.idx  = 0
     st.session_state.stay_wins = 0
     st.session_state.switch_wins = 0
-    st.session_state.page = "simulation"
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Înapoi", use_container_width=True):
+            st.session_state.page = "intro"
+            st.rerun()
+
+    with col2:
+        if st.button("Rulează simularea", use_container_width=True):
+            st.session_state.page = "simulation_nr"
+            st.rerun()
     
 if st.session_state.page == "simulation":
     st.title("Simulare Monty Hall")
