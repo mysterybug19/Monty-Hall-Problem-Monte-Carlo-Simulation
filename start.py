@@ -105,101 +105,101 @@ if st.session_state.page == "explenation":
     st.title("Explicație")
     st.divider()
     st.markdown("""
-# The Monty Hall Problem
+# Problema lui Monty Hall
 
-The Monty Hall problem is a famous probability puzzle. There are **three closed doors**:
+Problema lui Monty Hall este una dintre cele mai cunoscute probleme de probabilitate. Există **trei uși închise**:
 
-- 🚗 Behind one door is a **car**.
-- 🐐 Behind the other two doors are **goats**.
+- 🚗 În spatele unei uși se află o **mașină**.
+- 🐐 În spatele celorlalte două uși se află **două capre**.
 
-The game works as follows:
+Jocul se desfășoară astfel:
 
-1. You choose one of the three doors.
-2. The host, who **knows where the car is**, opens one of the remaining doors, always revealing a goat.
-3. You are then given a choice:
-   - **Stay** with your original door.
-   - **Switch** to the other unopened door.
+1. Alegi una dintre cele trei uși.
+2. Prezentatorul, care **știe unde se află mașina**, deschide una dintre celelalte două uși, dezvăluind întotdeauna o capră.
+3. Ai apoi două opțiuni:
+   - **Păstrezi** ușa aleasă inițial.
+   - **Schimbi** alegerea cu cealaltă ușă rămasă închisă.
 
-At first glance it seems that, after one goat is revealed, each remaining door should have a 50% chance of hiding the car. However, this intuition is incorrect because the host never reveals the car.
-
----
-
-# Why does switching work?
-
-Without loss of generality, assume the **car is behind Door A**.
-
-Initially, every door is equally likely to be chosen.
-
-| Your initial choice | Probability |
-|---------------------|------------:|
-| Door A (car) | 1/3 |
-| Door B (goat) | 1/3 |
-| Door C (goat) | 1/3 |
-
-Now consider each possible case.
-
-### Case 1: You choose Door A (probability = 1/3)
-
-The host can reveal either Door B or Door C.
-
-- **Stay** → Win
-- **Switch** → Lose
-
-Since each host choice is equally likely:
-
-| Host opens | Probability |
-|------------|------------:|
-| Door B | 1/6 |
-| Door C | 1/6 |
+La prima vedere pare că, după deschiderea unei uși, fiecare dintre cele două uși rămase are o probabilitate de **50%** de a ascunde mașina. Totuși, această intuiție este greșită deoarece prezentatorul **nu deschide niciodată ușa cu mașina**.
 
 ---
 
-### Case 2: You choose Door B (probability = 1/3)
+# De ce este mai bine să schimbi?
 
-The host **must** reveal Door C.
+Fără a pierde din generalitate (**WLOG**), presupunem că **mașina se află în spatele Ușii A**.
 
-- **Stay** → Lose
-- **Switch** → Win
+Inițial, fiecare ușă are aceeași probabilitate de a fi aleasă.
+
+| Alegerea inițială | Probabilitate |
+|-------------------|--------------:|
+| Ușa A (mașina) | 1/3 |
+| Ușa B (capră) | 1/3 |
+| Ușa C (capră) | 1/3 |
+
+Analizăm fiecare caz posibil.
+
+### Cazul 1: Alegi Ușa A (probabilitate = 1/3)
+
+Prezentatorul poate deschide fie Ușa B, fie Ușa C.
+
+- **Păstrezi** → Câștigi
+- **Schimbi** → Pierzi
+
+Cum cele două variante sunt echiprobabile:
+
+| Prezentatorul deschide | Probabilitate |
+|-------------------------|--------------:|
+| Ușa B | 1/6 |
+| Ușa C | 1/6 |
 
 ---
 
-### Case 3: You choose Door C (probability = 1/3)
+### Cazul 2: Alegi Ușa B (probabilitate = 1/3)
 
-The host **must** reveal Door B.
+Prezentatorul este obligat să deschidă Ușa C.
 
-- **Stay** → Lose
-- **Switch** → Win
+- **Păstrezi** → Pierzi
+- **Schimbi** → Câștigi
 
 ---
 
-# Combining the probabilities
+### Cazul 3: Alegi Ușa C (probabilitate = 1/3)
 
-| Initial choice | Host opens | Probability | Stay | Switch |
-|----------------|------------|------------:|:----:|:------:|
+Prezentatorul este obligat să deschidă Ușa B.
+
+- **Păstrezi** → Pierzi
+- **Schimbi** → Câștigi
+
+---
+
+# Combinarea probabilităților
+
+| Alegerea inițială | Prezentatorul deschide | Probabilitate | Păstrezi | Schimbi |
+|-------------------|------------------------|--------------:|:--------:|:--------:|
 | A | B | 1/6 | ✅ | ❌ |
 | A | C | 1/6 | ✅ | ❌ |
 | B | C | 1/3 | ❌ | ✅ |
 | C | B | 1/3 | ❌ | ✅ |
 
-Adding the probabilities:
+Adunând probabilitățile obținem:
 
-- **Stay wins:** 1/6 + 1/6 = **1/3 ≈ 33.3%**
-- **Switch wins:** 1/3 + 1/3 = **2/3 ≈ 66.7%**
+- **Câștig dacă păstrezi:** 1/6 + 1/6 = **1/3 ≈ 33,3%**
+- **Câștig dacă schimbi:** 1/3 + 1/3 = **2/3 ≈ 66,7%**
 
 ---
 
-# Conclusion
+# Concluzie
 
-Your initial choice has only a **1/3 probability** of being correct.
+Alegerea inițială are doar o **probabilitate de 1/3** de a fi corectă.
 
-The remaining **2/3 probability** belongs to the other two doors. Once the host reveals a goat, that entire **2/3 probability** transfers to the only unopened door.
+Celelalte două uși au împreună o probabilitate de **2/3** de a ascunde mașina. După ce prezentatorul elimină una dintre ele, dezvăluind o capră, întreaga probabilitate de **2/3** se transferă către singura ușă rămasă închisă.
 
-Therefore:
+Prin urmare:
 
-- **Staying wins with probability 1/3 (33.3%).**
-- **Switching wins with probability 2/3 (66.7%).**
+- **Dacă păstrezi alegerea inițială, vei câștiga în aproximativ 33,3% din cazuri.**
+- **Dacă schimbi ușa, vei câștiga în aproximativ 66,7% din cazuri.**
 
-The simulation on the next page demonstrates this result experimentally. As the number of simulations increases, the win rates converge to approximately **33.3%** for staying and **66.7%** for switching.
+Simularea din această aplicație confirmă acest rezultat. Pe măsură ce numărul de simulări crește, probabilitățile observate se apropie de **1/3** pentru strategia de păstrare și de **2/3** pentru strategia de schimbare.
 """)
     if st.button("Înapoi"):
         st.session_state.page = "intro"
