@@ -10,7 +10,7 @@ if "page" not in st.session_state:
     st.session_state.page = "intro"
 if "N" not in st.session_state:
     st.session_state.N = 0
-if "player_door" not in st.session.state:
+if "player_door" not in st.session_state:
     st.session_state.player_door=0
     
 #Intro
