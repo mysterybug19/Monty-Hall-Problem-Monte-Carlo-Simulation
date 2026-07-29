@@ -12,6 +12,7 @@ if "page" not in st.session_state:
 #Intro
 if st.session_state.page == "intro":
     st.title("Simulare Monty Hall")
+    st.markdown("---")
     st.markdown("""
     Platforma ce explică acestă problemă clasică de statistică și efectuază simulări pe baza acestor rezultate.
     """)
@@ -30,15 +31,15 @@ if st.session_state.page == "intro":
 
 #Game
 if st.session_state.page == "game":
-    st.title("Simulare Monty Hall")
-
+    st.title("Jocul")
+    st.markdown("---")
     if st.button("Back"):
         st.session_state.page = "intro"
         st.rerun()
 #Explenation
 if st.session_state.page == "explenation":
-    st.title("Simulare Monty Hall")
-
+    st.title("Explicație")
+    st.markdown("---")
     if st.button("Back"):
         st.session_state.page = "intro"
         st.rerun()
@@ -46,7 +47,7 @@ if st.session_state.page == "explenation":
 #Simulations
 if st.session_state.page == "simulation":
     st.title("Simulare Monty Hall")
-
+    st.markdown("---")
     if st.button("Back"):
         st.session_state.page = "intro"
         st.rerun()
