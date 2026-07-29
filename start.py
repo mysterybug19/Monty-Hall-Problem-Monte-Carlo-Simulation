@@ -80,6 +80,8 @@ if st.session_state.page == "simulation":
             st.session_state.switch_wins += 1
         stay_wins=st.session_state.stay_wins
         switch_wins=st.session_state.switch_wins
+        idx+=1
+        st.session_state.idx=idx
         st.markdown("Victorii dacă nu schimb")
         st.progress(float(stay_wins)/float(idx))
         st.caption(str(float(stay_wins)/float(idx)))
