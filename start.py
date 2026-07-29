@@ -243,9 +243,9 @@ if st.session_state.page == "simulation":
     switch_plot=switch_rate[idx]
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=x,y=stay_plot,mode="lines",name="Stay"))
-    fig.add_trace(go.Scatter(x=x,y=switch_plot,mode="lines",name="Switch"))
-    fig.update_layout(title="Convergența Monty Hall",xaxis_title="Number of simulations",yaxis_title="Probability",)
+    fig.add_trace(go.Scatter(x=x,y=stay_plot,mode="lines",name="Păstrezi"))
+    fig.add_trace(go.Scatter(x=x,y=switch_plot,mode="lines",name="Schimbi"))
+    fig.update_layout(title="Convergența Monty Hall",xaxis_title="Numărul de simulări",yaxis_title="Probabilitate",)
     fig.update_xaxes(type="log")
     fig.add_hline(y=1/3, line_dash="dash")
     fig.add_hline(y=2/3, line_dash="dash")
