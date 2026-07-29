@@ -51,7 +51,7 @@ if st.session_state.page == "simulation":
     doors=[1,2,3]
     stay_wins = 0
     switch_wins = 0
-    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000, value=1000)
+    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000)
 
     for i in range (N):
         car = random.choice(doors)
@@ -63,8 +63,12 @@ if st.session_state.page == "simulation":
             stay_wins += 1
         if switch == car:
             switch_wins += 1
+        st.markdown(Victorii dacă nu schimb)
         st.progress(float(stay_wins)/float(N))
+        st.caption(str(float(stay_wins)/float(N)))
+        st.markdown(Victorii dacă schimb)
         st.progress(float(switch_wins)/float(N))
+        st.caption(str(float(switch_wins)/float(N)))
 
     if st.button("Back"):
         st.session_state.page = "intro"
