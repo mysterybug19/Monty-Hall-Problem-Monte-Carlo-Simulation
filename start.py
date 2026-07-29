@@ -48,6 +48,24 @@ if st.session_state.page == "explenation":
 if st.session_state.page == "simulation":
     st.title("Simulare Monty Hall")
     st.divider()
+    doors=[1,2,3]
+    stay_wins = 0
+    switch_wins = 0
+    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000, value=1000, key=key)
+
+    for i in range (N):
+        car = random.choice(doors)
+        player = random.choice(doors)
+        possible = [d for d in doors if d != player and d != car]
+        host = random.choice(possible)
+        switch = [d for d in doors if d != player and d != host][0]
+        if player == car:
+            stay_wins += 1
+        if switch == car:
+            switch_wins += 1
+        st.progress(float(stay_wins)/float(N))
+        st.progress(float(switch_wins)/float(N))
+
     if st.button("Back"):
         st.session_state.page = "intro"
         st.rerun()
