@@ -74,8 +74,8 @@ if st.session_state.page == "simulation":
     stay_win=(player==car)
     switch_win=~stay_win
 
-    stay_rate=100*np.cumsum(stay)/np.arange(1,N+1)
-    switch_rate=100*np.cumsum(switch)/np.arange(1,N +1)
+    stay_rate=100*np.cumsum(stay_win)/np.arange(1,N+1)
+    switch_rate=100*np.cumsum(switch_win)/np.arange(1,N +1)
 
     idx=np.unique(np.logspace(0,np.log10(N),min(5000,N),dtype=int)-1)
 
