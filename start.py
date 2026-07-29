@@ -68,7 +68,7 @@ if st.session_state.page == "simulation_nr":
 
     with col2:
         if st.button("Rulează simularea", use_container_width=True):
-            st.session_state.page = "simulation_nr"
+            st.session_state.page = "simulation"
             st.rerun()
     
 if st.session_state.page == "simulation":
