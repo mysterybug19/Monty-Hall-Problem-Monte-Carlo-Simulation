@@ -91,7 +91,7 @@ if st.session_state.page == "simulation":
     fig.add_hline(y=1/3, line_dash="dash")
     fig.add_hline(y=2/3, line_dash="dash")
     
-    st.headline("Procente finale:")
+    st.header("Procente finale:")
     st.markdown("Victorii dacă nu schimb")
     st.progress(stay_rate[-1]/100.00)
     st.caption(f"{stay_rate[-1]:.1f}%")
@@ -99,7 +99,7 @@ if st.session_state.page == "simulation":
     st.progress(switch_rate[-1]/100.00)
     st.caption(f"{switch_rate[-1]:.1f}%")
     st.divider()
-    st.headline("Grafic:")
+    st.header("Grafic:")
     st.plotly_chart(fig, use_container_width=True)
     
     if st.button("Înapoi"):
