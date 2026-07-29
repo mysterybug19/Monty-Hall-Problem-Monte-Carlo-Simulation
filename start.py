@@ -96,12 +96,13 @@ if st.session_state.page == "game1":
 #Winner
 if st.session_state.page == "winner":
     st.title("Ai câiștigat")
-    st.ballons()
+    st.balloons()
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
 if st.session_state.page == "losser":
     st.title("Ai pierdut")
+    st.markdown("Privește partea bună, acum ai o capră.")
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
