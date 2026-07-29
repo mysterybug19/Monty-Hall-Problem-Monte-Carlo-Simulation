@@ -50,7 +50,7 @@ if st.session_state.page == "explenation":
 if st.session_state.page == "simulation_nr":
     st.title("Simulare Monty Hall")
     st.header("Alege numărul de simulări")
-    st.session_state.N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000)
+    st.session_state.N=st.number_input("Număr Simulări (1-10e8)", min_value=1, max_value=100000000)
     col1, col2 = st.columns(2)
     with col1:
         if st.button("Înapoi", use_container_width=True):
@@ -77,7 +77,7 @@ if st.session_state.page == "simulation":
     stay_rate=100*np.cumsum(stay)/np.arange(1,N+1)
     switch_rate=100*np.cumsum(switch)/np.arange(1,N +1)
 
-    idx=np.unique(np.logspace(0,np.log10(N),5000,dtype=int)-1)
+    idx=np.unique(np.logspace(0,np.log10(N),min(5000,N),dtype=int)-1)
 
     x=idx+1
     stay_plot=stay_rate[idx]
