@@ -100,7 +100,7 @@ if st.session_state.page == "winner":
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
-if st.session_state.page == "loser":
+if st.session_state.page == "losser":
     st.title("Ai pierdut")
     if st.button("Înapoi"):
         st.session_state.page = "intro"
