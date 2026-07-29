@@ -1,22 +1,28 @@
 import random
+import pandas as pd
+import numpy as np
+import streamlit as st
+import os
 
-#monte carlo simulation
-doors=[1,2,3]
-stay_wins = 0
-switch_wins = 0
-N=int(input())
+#Intro
+if st.session_state.page == "intro":
+    st.title("Simulare Monty Hall")
+    st.markdown("""
+    Platforma ce explică acestă problemă clasică de statistică și efectuază simulări pe baza acestor rezultate.
+    """)
 
-for i in range (N):
-    car = random.choice(doors)
-    player = random.choice(doors)
-    possible = [d for d in doors if d != player and d != car]
-    host = random.choice(possible)
-    switch = [d for d in doors if d != player and d != host][0]
-    if player == car:
-        stay_wins += 1
+    if st.button("Jocul", use_container_width=True):
+        st.session_state.page = "game"
+        st.rerun()
 
-    if switch == car:
-        switch_wins += 1
+    if st.button("Explicație", use_container_width=True):
+        st.session_state.page = "explenation"
+        st.rerun()
 
-print("Stay win rate:", stay_wins / N)
-print("Switch win rate:", switch_wins / N)
+    if st.button("Simulare", use_container_width=True):
+        st.session_state.page = "simulation"
+        st.rerun()
+
+#Game
+if st.session_state.page == "game":
+    
