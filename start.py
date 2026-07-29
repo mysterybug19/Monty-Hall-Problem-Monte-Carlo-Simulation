@@ -35,4 +35,19 @@ if st.session_state.page == "game":
     if st.button("Back"):
         st.session_state.page = "intro"
         st.rerun()
+#Explenation
+if st.session_state.page == "explenation":
+    st.title("Simulare Monty Hall")
+
+    if st.button("Back"):
+        st.session_state.page = "intro"
+        st.rerun()
+
+#Simulations
+if st.session_state.page == "simulation":
+    st.title("Simulare Monty Hall")
+
+    if st.button("Back"):
+        st.session_state.page = "intro"
+        st.rerun()
     
