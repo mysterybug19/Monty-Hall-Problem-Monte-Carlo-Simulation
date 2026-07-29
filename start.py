@@ -91,10 +91,10 @@ if st.session_state.page == "simulation":
     switch_pr=float(switch_wins/N*100)
     st.markdown("Victorii dacă nu schimb")
     st.progress(stay_pr/100.00)
-    st.caption(f"{stay:.1f}%")
+    st.caption(f"{stay_pr:.1f}%")
     st.markdown("Victorii dacă schimb")
     st.progress(switch_pr/100.00)
-    st.caption(f"{switch:.1f}%")
+    st.caption(f"{switch_pr:.1f}%")
 
     if st.button("Back"):
         st.session_state.page = "intro"
