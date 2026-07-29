@@ -8,10 +8,7 @@ st.set_page_config(page_title="Simulare Monty Hall")
 
 if "page" not in st.session_state:
     st.session_state.page = "intro"
-if "idx" not in st.session_state:
-    st.session_state.idx = 0
-if "answers" not in st.session_state:
-    st.session_state.answers = {}
+
 
 @st.cache_resource
 
