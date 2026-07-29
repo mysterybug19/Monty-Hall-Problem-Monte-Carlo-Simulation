@@ -89,7 +89,7 @@ if st.session_state.page == "game1":
 #Winner
 if st.session_state.page == "winner":
     st.title("Ai câiștigat")
-    st.markdown("Ai câiștigat o mașină nouă!!!.")
+    st.markdown("Ai câiștigat o mașină nouă!!!")
     st.balloons()
     if st.button("Înapoi"):
         st.session_state.page = "intro"
@@ -104,6 +104,103 @@ if st.session_state.page == "losser":
 if st.session_state.page == "explenation":
     st.title("Explicație")
     st.divider()
+    st.markdown("""
+# The Monty Hall Problem
+
+The Monty Hall problem is a famous probability puzzle. There are **three closed doors**:
+
+- 🚗 Behind one door is a **car**.
+- 🐐 Behind the other two doors are **goats**.
+
+The game works as follows:
+
+1. You choose one of the three doors.
+2. The host, who **knows where the car is**, opens one of the remaining doors, always revealing a goat.
+3. You are then given a choice:
+   - **Stay** with your original door.
+   - **Switch** to the other unopened door.
+
+At first glance it seems that, after one goat is revealed, each remaining door should have a 50% chance of hiding the car. However, this intuition is incorrect because the host never reveals the car.
+
+---
+
+# Why does switching work?
+
+Without loss of generality, assume the **car is behind Door A**.
+
+Initially, every door is equally likely to be chosen.
+
+| Your initial choice | Probability |
+|---------------------|------------:|
+| Door A (car) | 1/3 |
+| Door B (goat) | 1/3 |
+| Door C (goat) | 1/3 |
+
+Now consider each possible case.
+
+### Case 1: You choose Door A (probability = 1/3)
+
+The host can reveal either Door B or Door C.
+
+- **Stay** → Win
+- **Switch** → Lose
+
+Since each host choice is equally likely:
+
+| Host opens | Probability |
+|------------|------------:|
+| Door B | 1/6 |
+| Door C | 1/6 |
+
+---
+
+### Case 2: You choose Door B (probability = 1/3)
+
+The host **must** reveal Door C.
+
+- **Stay** → Lose
+- **Switch** → Win
+
+---
+
+### Case 3: You choose Door C (probability = 1/3)
+
+The host **must** reveal Door B.
+
+- **Stay** → Lose
+- **Switch** → Win
+
+---
+
+# Combining the probabilities
+
+| Initial choice | Host opens | Probability | Stay | Switch |
+|----------------|------------|------------:|:----:|:------:|
+| A | B | 1/6 | ✅ | ❌ |
+| A | C | 1/6 | ✅ | ❌ |
+| B | C | 1/3 | ❌ | ✅ |
+| C | B | 1/3 | ❌ | ✅ |
+
+Adding the probabilities:
+
+- **Stay wins:** 1/6 + 1/6 = **1/3 ≈ 33.3%**
+- **Switch wins:** 1/3 + 1/3 = **2/3 ≈ 66.7%**
+
+---
+
+# Conclusion
+
+Your initial choice has only a **1/3 probability** of being correct.
+
+The remaining **2/3 probability** belongs to the other two doors. Once the host reveals a goat, that entire **2/3 probability** transfers to the only unopened door.
+
+Therefore:
+
+- **Staying wins with probability 1/3 (33.3%).**
+- **Switching wins with probability 2/3 (66.7%).**
+
+The simulation on the next page demonstrates this result experimentally. As the number of simulations increases, the win rates converge to approximately **33.3%** for staying and **66.7%** for switching.
+""")
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
