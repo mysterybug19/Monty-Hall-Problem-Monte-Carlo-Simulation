@@ -51,7 +51,7 @@ if st.session_state.page == "simulation":
     doors=[1,2,3]
     stay_wins = 0
     switch_wins = 0
-    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000, value=1000, key=key)
+    N=st.number_input("Număr Simulări (1-10e6)", min_value=1, max_value=1000000, value=1000)
 
     for i in range (N):
         car = random.choice(doors)
