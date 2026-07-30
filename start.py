@@ -126,7 +126,7 @@ La prima vedere pare că, după deschiderea unei uși, fiecare dintre cele două
 
 # De ce este mai bine să schimbi?
 
-Fără a pierde din generalitate (**WLOG**), presupunem că **mașina se află în spatele Ușii A**.
+Fără a pierde din generalitate (**MRA**), presupunem că **mașina se află în spatele Ușii A**.
 
 Inițial, fiecare ușă are aceeași probabilitate de a fi aleasă.
 
