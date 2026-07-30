@@ -1,5 +1,9 @@
 # Simulare Monty Hall
 
+### Link
+
+monty-hall-problem-monte-carlo-simulation.streamlit.app/
+
 ## Descriere
 
 Acest proiect reprezintă o aplicație interactivă realizată în **Python** folosind biblioteca **Streamlit**, având scopul de a ilustra celebra problemă de probabilitate **Monty Hall**. Aplicația permite utilizatorului să înțeleagă conceptul atât prin intermediul unui joc interactiv, cât și printr-o demonstrație teoretică și simulări statistice.
