@@ -83,29 +83,32 @@ if st.session_state.page == "game1":
             else:
                 st.session_state.page = "winner"
                 st.rerun()
-    if st.button("Înapoi"):
-        st.session_state.page = "game"
-        st.rerun()
 #Winner
 if st.session_state.page == "winner":
     st.title("Ai câiștigat")
     st.markdown("Ai câiștigat o mașină nouă!!!")
     st.balloons()
-    if st.button("Rejoacă"):
-        st.session_state.page = "game1"
-        st.rerun()
-    if st.button("Înapoi"):
-        st.session_state.page = "intro"
-        st.rerun()
+    col1, col2= st.columns(2)
+    with col1:
+        if st.button("Rejoacă"):
+            st.session_state.page = "game"
+            st.rerun()
+    with col2:
+        if st.button("Înapoi"):
+            st.session_state.page = "intro"
+            st.rerun()
 if st.session_state.page == "losser":
     st.title("Ai pierdut")
     st.markdown("Privește partea bună, acum ai o capră :)")
-    if st.button("Rejoacă"):
-        st.session_state.page = "game1"
-        st.rerun()
-    if st.button("Înapoi"):
-        st.session_state.page = "intro"
-        st.rerun()
+    col1, col2= st.columns(2)
+    with col1:
+        if st.button("Rejoacă"):
+            st.session_state.page = "game"
+            st.rerun()
+    with col2:
+        if st.button("Înapoi"):
+            st.session_state.page = "intro"
+            st.rerun()
         
 #Explenation
 if st.session_state.page == "explenation":
