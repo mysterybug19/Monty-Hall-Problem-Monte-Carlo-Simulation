@@ -85,8 +85,8 @@ if st.session_state.page == "game1":
                 st.rerun()
 #Winner
 if st.session_state.page == "winner":
-    st.title("Ai câiștigat")
-    st.markdown("Ai câiștigat o mașină nouă!!!")
+    st.title("Ai câștigat")
+    st.markdown("Ai câștigat o mașină nouă!!!")
     st.balloons()
     col1, col2= st.columns(2)
     with col1:
