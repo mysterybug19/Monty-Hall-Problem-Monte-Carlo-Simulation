@@ -91,15 +91,22 @@ if st.session_state.page == "winner":
     st.title("Ai câiștigat")
     st.markdown("Ai câiștigat o mașină nouă!!!")
     st.balloons()
+    if st.button("Rejoacă"):
+        st.session_state.page = "game1"
+        st.rerun()
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
 if st.session_state.page == "losser":
     st.title("Ai pierdut")
     st.markdown("Privește partea bună, acum ai o capră :)")
+    if st.button("Rejoacă"):
+        st.session_state.page = "game1"
+        st.rerun()
     if st.button("Înapoi"):
         st.session_state.page = "intro"
         st.rerun()
+        
 #Explenation
 if st.session_state.page == "explenation":
     st.title("Explicație")
