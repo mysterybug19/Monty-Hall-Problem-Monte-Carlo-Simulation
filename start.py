@@ -109,8 +109,8 @@ if st.session_state.page == "explenation":
 
 Problema lui Monty Hall este una dintre cele mai cunoscute probleme de probabilitate. Există **trei uși închise**:
 
-- 🚗 În spatele unei uși se află o **mașină**.
-- 🐐 În spatele celorlalte două uși se află **două capre**.
+- În spatele unei uși se află o **mașină**.
+- În spatele celorlalte două uși se află **două capre**.
 
 Jocul se desfășoară astfel:
 
