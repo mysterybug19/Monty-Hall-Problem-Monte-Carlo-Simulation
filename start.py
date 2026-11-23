@@ -90,11 +90,11 @@ if st.session_state.page == "winner":
     st.balloons()
     col1, col2= st.columns(2)
     with col1:
-        if st.button("Rejoacă"):
+        if st.button("Rejoacă", use_container_width=True):
             st.session_state.page = "game"
             st.rerun()
     with col2:
-        if st.button("Înapoi"):
+        if st.button("Înapoi", use_container_width=True):
             st.session_state.page = "intro"
             st.rerun()
 if st.session_state.page == "losser":
@@ -102,11 +102,11 @@ if st.session_state.page == "losser":
     st.markdown("Privește partea bună, acum ai o capră :)")
     col1, col2= st.columns(2)
     with col1:
-        if st.button("Rejoacă"):
+        if st.button("Rejoacă", use_container_width=True):
             st.session_state.page = "game"
             st.rerun()
     with col2:
-        if st.button("Înapoi"):
+        if st.button("Înapoi", use_container_width=True):
             st.session_state.page = "intro"
             st.rerun()
         
